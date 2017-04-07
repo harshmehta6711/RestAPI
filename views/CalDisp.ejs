@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    
+    <!-- <link rel="stylesheet" type="text/css" href="../public/stylesheets/bootstrap.min.css">"public/bootstrap/css/bootstrap.min.css"
+    <script src="../public/bootstrap/js/respond.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>   -->
+    
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  var s="";
+
+  function dispNum(n)
+  {
+	
+	  var tbox=document.getElementById('exampleInputName2');
+	  s=s+n;
+	  tbox.value=s;
+	  console.log(s);
+  }
+  
+  function onequals()
+  {
+	  $.ajax({
+          url: "http://localhost:3000/calculate",
+          data: {'status': s}
+       });
+  }
+  </script>
+  </head>
+  <body>
+    <div class="container">
+    <form action="/calculate">
+    <div class="row">
+	 <div class="col-xs-12"></div>
+	 <div class="col-xs-12"></div>
+	  <div class="col-xs-12"></div>
+    </div>
+    
+  	 <header class="row">
+  	  <div class="col-xs-6 col-sm-5"></div>
+  	  <div class="col-xs-6 col-sm-5 centered">
+        	<h1 class="text-left">CALCULATOR</h1>
+        </div>
+
+    </header>
+    
+    <div class="row">
+     <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+    <div class="input-group">
+      <input type="text" class="form-control" id="exampleInputName2" name="exampleInputName2" placeholder="Enter Expression" value="<%= title %>" ng-model="result"/> </input><br/>
+       <span class="input-group-btn">
+        <button class="btn btn-default" type="button">X</button>
+      </span>
+      </div>
+      <div class="row"></div>
+      <div class="row">
+        <div class="col-sm-3 other">
+    <button type="button" class="btn btn-default btn-lg" id="one" onclick="dispNum('1')">1</button>      
+        </div>
+        <div class="col-sm-3 other2">
+         <button type="button" class="btn btn-default btn-lg" id="two" onclick="dispNum('2')">2</button>  
+        </div>
+        <div class="col-sm-3 other2">
+          <button type="button" class="btn btn-default btn-lg" id="three" onclick="dispNum('3')">3</button>  
+        </div>
+        <div class="col-sm-3 other2">
+          <button type="button" class="btn btn-default btn-lg" id="plus" onclick="dispNum('+')">+</button>  
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 other">
+          <button type="button" class="btn btn-default btn-lg" id="for" onclick="dispNum('4')">4</button>
+        </div>
+        <div class="col-sm-3 other2">
+         <button type="button" class="btn btn-default btn-lg" id="five" onclick="dispNum('5')">5</button>
+        </div>
+        <div class="col-sm-3 other2">
+          <button type="button" class="btn btn-default btn-lg" id="six" onclick="dispNum('6')">6</button>
+        </div>
+        <div class="col-sm-3 other2">
+          <button type="button" class="btn btn-default btn-lg" id="hyphen" onclick="dispNum('-')">-</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 other">
+           <button type="button" class="btn btn-default btn-lg" id="seven" onclick="dispNum('7')">7</button>
+        </div>
+        <div class="col-sm-3 other2">
+           <button type="button" class="btn btn-default btn-lg id="eight" onclick="dispNum('8')"">8</button>
+        </div>
+        <div class="col-sm-3 other2">
+          <button type="button" class="btn btn-default btn-lg" id="nine" onclick="dispNum('9')">9</button>
+        </div>
+        <div class="col-sm-3 other2">
+          <button type="button" class="btn btn-default btn-lg" id="multiply" onclick="dispNum('*')">*</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 other">
+           <button type="button" class="btn btn-default btn-lg" id="dot" onclick="dispNum('.')">.</button>
+        </div>
+        <div class="col-sm-3 other2">
+           <button type="button" class="btn btn-default btn-lg" id="zero" onclick="dispNum('0')">0</button>
+        </div>
+        <div class="col-sm-3 other2">
+           <button type="button" class="btn btn-default btn-lg" id="divide" onclick="dispNum('/')">/</button>
+        </div>
+        
+        <div class="col-sm-3 other2">
+         <!--   <button type="submit" class="btn btn-default btn-lg" id="equals" onclick="onequals()">=</button> -->
+         
+           <button type="submit" class="btn btn-default btn-lg" id="equals">=</button>
+        
+        </div>
+       
+      </div>
+    </div>
+    
+     
+ </form>
+</div>
+  </body>
+</html>
